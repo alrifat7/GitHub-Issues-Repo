@@ -2,6 +2,8 @@
 
 const buttons = document.querySelectorAll("#btnContainer button")
 const issuesContainer = document.getElementById("issuesContainer");
+const modal = document.getElementById("my_modal_3");
+const modalContent = document.getElementById("modalContent");
 
 // issues container
 
@@ -121,6 +123,53 @@ buttons.forEach(button =>{
     });
 
 });
+
+//modal 
+
+function openIssueModal(issue){
+
+    modalContent.innerHTML = `
+     <div class="bg-white shadow-lg rounded-xl p-6 max-w-lg ">
+
+  
+    <h2 class="text-2xl font-bold mb-3">
+        ${issue.title}
+    </h2>
+
+  
+    <p class="text-gray-600 mb-4 line-clamp-2">
+        ${issue.description}
+    </p>
+
+  
+    <div class="flex flex-wrap gap-2 mb-4">
+
+        <span class="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-medium">
+            Priority : ${issue.priority}
+        </span>
+
+        <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium">
+            Assignee : ${issue.assignee}
+        </span>
+
+        <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-medium">
+            Status : ${issue.status}
+        </span>
+
+    </div>
+
+    <!-- Info -->
+    <div class="text-sm text-gray-500 border-t pt-3 space-y-1">
+        <p><b>Author :</b> ${issue.author}</p>
+        <p><b>ID :</b> ${issue.id}</p>
+        <p>${new Date(issue.createdAt).toLocaleDateString()}</p>
+    </div>
+
+</div>
+    `;
+
+    modal.showModal();
+}
 
 loadIssue();
 issuesContainer();
