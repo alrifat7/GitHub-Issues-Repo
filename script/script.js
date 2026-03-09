@@ -1,9 +1,9 @@
 
 
-
+const buttons = document.querySelectorAll("#btnContainer button")
 const issuesContainer = document.getElementById("issuesContainer");
 
-
+// issues container
 
 async function loadIssue(){
 
@@ -94,6 +94,33 @@ function displayIssues(issues){
         issuesContainer.appendChild(div);
     });
 }
+
+buttons.forEach(button =>{
+
+    button.addEventListener("click", () =>{
+
+        buttons.forEach(btn =>
+        btn.classList.remove("btn-primary"));
+
+        button.classList.add("btn-primary");
+
+        const status = button.dataset.status;
+
+        if(status === "all"){
+            displayIssues(allIssues);
+        }
+        else{
+
+            const filtered =
+            allIssues.filter(issue =>
+            issue.status === status);
+
+            displayIssues(filtered);
+        }
+
+    });
+
+});
 
 loadIssue();
 issuesContainer();
