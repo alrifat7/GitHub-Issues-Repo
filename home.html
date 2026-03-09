@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Issues Tracker</title>
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="">
+    <section id="nav" class="px-6 py-3 bg-white border-b border-gray-200">
+        <div class="flex items-center justify-between">
+
+            <!-- left -->
+            <div class="flex items-center gap-2">
+                <img class="w-10 h-10"  src="./assets/github-logo.png" alt="">
+                <h2 class="text-xl font-bold">GitHub Issues Tracker</h2>
+            </div>
+
+            <!-- right  -->
+            <div class="flex items-center gap-1">
+                            <label class="input">
+        <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g
+        stroke-linejoin="round"
+        stroke-linecap="round"
+        stroke-width="2.5"
+        fill="none"
+        stroke="currentColor"
+    >
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.3-4.3"></path>
+    </g>
+    </svg>
+    <input id="input-search" type="search" required placeholder="Search issues" />
+</label>
+
+            <button id="btn-search" class="btn btn-primary">Search</button>
+            </div>
+
+
+        </div>
+    </section>
+
+
+    <main class="px-10">
+        
+    <div id="btnContener" class="flex items-center gap-2 p-10 px-20 py-5 mt-5 bg-gray-100 ">
+    <button id="tab-all" class="btn btn-primary">All</button>
+    <button id="tab-open"  class="btn btn-soft btn-primary">Open</button>
+    <button id="tab-closed"  class="btn btn-soft btn-primary">Closed</button>
+    </div>
+    
+
+
+    <section class="flex items-center justify-between p-4 mb-6 bg-white rounded shadow">
+    
+    <div class="flex items-center gap-3">
+    
+    <img src="./assets/Aperture.png" class="w-8">
+    
+    <div>
+    
+    <h3 id="issueCount" class="text-lg font-bold">
+        0 Issues
+    </h3>
+    
+    <p class="text-sm text-gray-500">
+    Track and manage your project issues
+    </p>
+    
+    </div>
+    
+    </div>
+    
+    <div class="flex gap-5 text-sm">
+    
+    <div class="flex items-center gap-2">
+    
+    <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+    Open
+    
+    </div>
+    
+    <div class="flex items-center gap-2">
+    
+    <span class="w-3 h-3 bg-purple-500 rounded-full"></span>
+    Closed
+    
+    </div>
+    
+    </div>
+    
+</section>
+
+
+<div id="loader" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-white bg-opacity-50">
+    <span class="loading loading-spinner loading-lg"></span>
+</div>
+
+<!-- modal -->
+    <dialog id="my_modal_3" class="modal">
+    <div class="modal-box">
+    <form method="dialog">
+        <button class="absolute btn btn-sm btn-circle btn-ghost right-2 top-2">✕</button>
+    </form>
+        <div id="modalContent"></div>
+    </div>
+</dialog>
+
+<section id="issuesContainer" class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+
+</section>
+
+
+</main>
+
+
+
+    
+    
+    <!-- js -->
+    <script src="./script/script.js"></script>
+</body>
+</html>
